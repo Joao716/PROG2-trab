@@ -380,5 +380,4 @@ public enum LCComponent {
         float newBrightness = Math.max(hsb[2] * (1.0f - factor), 0.0f); // Decrease brightness
         return Color.getHSBColor(hsb[0], hsb[1], newBrightness);
     }
-
 }
