@@ -1,12 +1,7 @@
-import java.util.*;
-
-import circuito2.Circuito2;
-import circuito2.Componente2;
-import circuito2.Conexao2;
-
-import logicircuit.*;
-import static logicircuit.LCComponent.*;
-import static logicircuit.LCInputPin.*;
+import component.*;
 public class ProgCircuito{
-    
+    public static void main(String[] args) {
+        Component c=new Component();
+        Gate g=new Gate();
+    }
 }
