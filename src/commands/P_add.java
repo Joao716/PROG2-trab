@@ -1,3 +1,5 @@
+package commands;
+import logicircuit.*;
 public class P_add implements CmdProcessor{
     private boolean error;
     public P_add(){
@@ -6,10 +8,11 @@ public class P_add implements CmdProcessor{
     public boolean isError(){return error;}
     @Override 
     public String process(String text){
+        String result=new String();
         int index=text.indexOf('@');
         boolean errorNoAtSign=(index==-1);
         boolean errorNoChunkAfterAtSign=false;
-        String chunkBeforeAtSign,chunkAfterAtSign;
+        String chunkBeforeAtSign=new String(),chunkAfterAtSign=new String();
         if(!errorNoAtSign){
             chunkBeforeAtSign=text.substring(0,index);
             try{
@@ -22,7 +25,7 @@ public class P_add implements CmdProcessor{
         boolean errorNoCommaFound=(index==-1);
         boolean errorNothingAfterComma=false;
         boolean errorBrackets=false;
-        String coordX,CoordYAndName,name,coordY;
+        String coordX=new String(),CoordYAndName=new String(),name=new String(),coordY=new String();
         if(!errorNoCommaFound){
             coordX=chunkAfterAtSign.substring(0,index);
             coordX=coordX.replaceAll(" ","");
@@ -43,7 +46,7 @@ public class P_add implements CmdProcessor{
         }
         index=chunkBeforeAtSign.indexOf(':');
         boolean errorNoColonFound=(index==-1);
-        String id,gateType;
+        String id=new String(),gateType=new String();
         if(!errorNoColonFound){
             id=chunkBeforeAtSign.substring(0,index);
             id=id.toLowerCase();

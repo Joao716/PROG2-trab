@@ -1,4 +1,5 @@
-package logicircuit;
+package commands;
+import logicircuit.*;
 public class P_wire implements CmdProcessor{
     private boolean error;
     public P_wire(){

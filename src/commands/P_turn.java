@@ -1,7 +1,8 @@
-package logicircuit;
-public class P_close implements CmdProcessor{
+package commands;
+import logicircuit.*;
+public class P_turn implements CmdProcessor{
     private boolean error;
-    public P_close(){
+    public P_turn(){
         error=false;
     }
     public boolean isError(){
@@ -10,12 +11,12 @@ public class P_close implements CmdProcessor{
     @Override
     public String process(String text){
         String[]parts=text.split(" ");
-        boolean notEnoughArgs=(parts.length!=2);
+        boolean notEnoughArgs=(parts.length!=3);
         if(!notEnoughArgs){
-            return parts[1].trim();
+            return parts[1].trim()+"\n"+parts[2].trim();
         }else{
+            return "Incorrect number of arguments for Turn :(";
             error=true;
-            return "Incorrect number of arguments for close :(";
         }
     }
 }

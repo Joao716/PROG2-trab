@@ -1,10 +1,13 @@
-package logicircuit;
-public class P_open implements CmdProcessor{
+package commands;
+import logicircuit.*;
+public class P_close implements CmdProcessor{
     private boolean error;
-    public P_open(){
+    public P_close(){
         error=false;
     }
-    public isError(){return error;}
+    public boolean isError(){
+        return error;
+    }
     @Override
     public String process(String text){
         String[]parts=text.split(" ");
@@ -13,7 +16,7 @@ public class P_open implements CmdProcessor{
             return parts[1].trim();
         }else{
             error=true;
-            return "Incorrect number of arguments for Open :(";
+            return "Incorrect number of arguments for close :(";
         }
     }
 }
