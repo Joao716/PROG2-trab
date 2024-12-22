@@ -1,16 +1,13 @@
-package commands;
+package Commands;
 
 import LogicCircuit.CmdProcessor;
 
-public class P_close implements CmdProcessor{
+public class P_open implements CmdProcessor{
     private boolean error;
-    public P_close(){
+    public P_open(){
         error=false;
     }
-    public boolean isError(){
-        return error;
-    }
-
+    public boolean isError(){return error;}
     @Override
     public String process(String text){
         String[]parts=text.split(" ");
@@ -19,7 +16,7 @@ public class P_close implements CmdProcessor{
             return parts[1].trim();
         }else{
             error=true;
-            return "Incorrect number of arguments for close :(";
+            return "Incorrect number of arguments for Open :(";
         }
     }
 }

@@ -1,16 +1,18 @@
 package Circuits.Components.Input;
 
 import Circuits.Components.Component;
+import Circuits.Components.State;
 import LogicCircuit.*;
+
+import java.util.Map;
 
 public class Bit3_Display extends HaveInput {
     private static final int maxInput = 3;
-    private static final LCComponent component = LCComponent.BIT3_DISPLAY;
 
     private int value;
 
     public Bit3_Display(String id, int x, int y, String legend) {
-        super(id, x, y, legend);
+        super(id, x, y, legend, "BIT3_DISPLAY");
         this.value = 0;
     }
 
@@ -23,6 +25,7 @@ public class Bit3_Display extends HaveInput {
     }
 
     public void draw(LCDPanel panel){
-        panel.drawComponent(this.component, super.getX(), super.getY(), value);
+        panel.drawComponent(super.getComponent(), super.getX(), super.getY(), value);
     }
+
 }

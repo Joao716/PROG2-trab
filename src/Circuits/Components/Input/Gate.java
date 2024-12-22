@@ -4,26 +4,28 @@ import Circuits.Components.Component;
 import Circuits.Components.State;
 import LogicCircuit.*;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class Gate extends HaveInput implements State {
     private boolean state;
-    private LCComponent component;
     private Gates gate;
 
-    public Gate(String id, int x, int y, String legend, String gateType) {
-        super(id, x, y, legend);
+    public Gate(String id, int x, int y, String legend, String componentName) {
+        super(id, x, y, legend, componentName);
         this.state = false;
+
         try {
-            this.component = LCComponent.valueOf(gateType);
-            this.gate = Gates.valueOf(gateType);
+            this.gate = Gates.valueOf(super.getComponent().name());
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Invalid gate type: " + gateType);
+            throw new IllegalArgumentException("Invalid gate type: " + super.getComponent().name());
         }
     }
 
     public boolean getState() {
-        return state;
+        return state = gate.calculateState(super.getInputConnections());
     }
-
 
     public void addInputConnection(String pin, Component component) {
         if (gate.maxInputs() > super.getInputConnections().size()) {
@@ -35,9 +37,18 @@ public class Gate extends HaveInput implements State {
 
     public void draw(LCDPanel panel){
         if (super.getLegend().isBlank()) {
-            panel.drawComponent(this.component, super.getX(), super.getY());
+            panel.drawComponent(
+                    super.getComponent(),
+                    super.getX(),
+                    super.getY()
+            );
         } else {
-            panel.drawComponent(this.component, super.getX(), super.getY(), super.getLegend());
+            panel.drawComponent(
+                    super.getComponent(),
+                    super.getX(),
+                    super.getY(),
+                    super.getLegend()
+            );
         }
     }
 }

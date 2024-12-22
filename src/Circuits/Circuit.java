@@ -4,7 +4,6 @@ import Circuits.Components.Component;
 import Circuits.Components.Input.HaveInput;
 import LogicCircuit.LCDPanel;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.HashMap;
 
 public class Circuit {
@@ -16,15 +15,30 @@ public class Circuit {
         circuits = new HashMap<>();
     }
 
+    public void addComponent(String name, Component component) {
+        circuits.put(name, component);
+    }
+
+    public void removeComponent(String name) {
+        for (Component component : circuits.values()) {
+            if (component instanceof HaveInput) {
+                ((HaveInput) component).getInputConnections().remove(name);
+            }
+        }
+        circuits.remove(name);
+    }
+
+    public void removeAllComponents() {
+        circuits.clear();
+    }
 
     public void draw() {
         panel.clear();
         for (Component component : circuits.values()) {
             component.draw(panel);
             if (component instanceof HaveInput){
+                ((HaveInput) component).drawWire(panel);
             }
         }
-
     }
-
 }
