@@ -39,7 +39,7 @@ if git diff --quiet && git diff --cached --quiet; then
 fi
 
 # Adiciona todos os arquivos, incluindo os não rastreados (novos)
-git add -A
+git add .
 
 # Verifica se o script foi adicionado corretamente
 echo "Arquivos adicionados:"
