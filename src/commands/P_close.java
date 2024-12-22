@@ -1,5 +1,7 @@
 package commands;
-import logicircuit.*;
+
+import LogicCircuit.CmdProcessor;
+
 public class P_close implements CmdProcessor{
     private boolean error;
     public P_close(){
@@ -8,6 +10,7 @@ public class P_close implements CmdProcessor{
     public boolean isError(){
         return error;
     }
+
     @Override
     public String process(String text){
         String[]parts=text.split(" ");

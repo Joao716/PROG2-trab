@@ -1,9 +1,7 @@
 package Circuits.Components.Output;
 
-import Circuits.Components.Component;
-import Circuits.Components.State;
-import LogicCircuit.LCComponent;
-import LogicCircuit.LCDPanel;
+import Circuits.Components.*;
+import LogicCircuit.*;
 
 public class Switch extends Component implements State {
     private static final LCComponent component = LCComponent.SWITCH;
@@ -25,5 +23,6 @@ public class Switch extends Component implements State {
             panel.drawComponent(this.component, super.getX(), super.getY(), super.getLegend());
         }
     }
+
 
 }

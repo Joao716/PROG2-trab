@@ -2,8 +2,7 @@ package Circuits.Components;
 
 import java.util.HashMap;
 
-import LogicCircuit.LCDPanel;
-import LogicCircuit.LCInputPin;
+import LogicCircuit.*;
 
 public abstract class Component {
     private String id;

@@ -1,8 +1,10 @@
 package Circuits;
 
 import Circuits.Components.Component;
+import Circuits.Components.Input.HaveInput;
 import LogicCircuit.LCDPanel;
 
+import javax.swing.plaf.nimbus.State;
 import java.util.HashMap;
 
 public class Circuit {
@@ -19,7 +21,8 @@ public class Circuit {
         panel.clear();
         for (Component component : circuits.values()) {
             component.draw(panel);
-            if (component instanceof )
+            if (component instanceof HaveInput){
+            }
         }
 
     }

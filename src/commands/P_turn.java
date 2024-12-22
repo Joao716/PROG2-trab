@@ -1,5 +1,7 @@
 package commands;
-import logicircuit.*;
+
+import LogicCircuit.CmdProcessor;
+
 public class P_turn implements CmdProcessor{
     private boolean error;
     public P_turn(){
@@ -15,8 +17,8 @@ public class P_turn implements CmdProcessor{
         if(!notEnoughArgs){
             return parts[1].trim()+"\n"+parts[2].trim();
         }else{
-            return "Incorrect number of arguments for Turn :(";
             error=true;
+            return "Incorrect number of arguments for Turn :(";
         }
     }
 }

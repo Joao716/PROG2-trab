@@ -1,4 +1,5 @@
 package commands;
+
 public class Cmd{
     private final String ADD="ADD";
     private final String CLOSE="CLOSE";
